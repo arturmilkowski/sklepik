@@ -4,6 +4,7 @@ namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Concentration extends Model
 {
@@ -13,5 +14,10 @@ class Concentration extends Model
     protected $fillable = [
         'slug',
         'name'
-    ];    
+    ];
+    
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
 }

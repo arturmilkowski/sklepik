@@ -4,7 +4,8 @@ namespace Tests\Unit\Product;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\Product\Brand;
+use Illuminate\Support\Collection;
+use App\Models\Product\{Brand, Category, Concentration, Product};
 
 class BrandTest extends TestCase
 {
@@ -26,5 +27,19 @@ class BrandTest extends TestCase
             'slug' => $brand->slug,
             'name' => $brand->name,
         ]);
+    }
+
+    public function testBrandHasManyProducts(): void
+    {
+        $brand = Brand::factory()
+            ->has(
+                Product::factory()
+                    ->for(Category::factory())
+                    ->for(Concentration::factory())
+                    ->for(Brand::factory())
+            )
+            ->create();
+
+        $this->assertInstanceOf(Collection::class, $brand->products);
     }
 }

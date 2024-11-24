@@ -28,4 +28,19 @@ class ConcentrationTest extends TestCase
             'name' => $concentration->name,
         ]);
     }
+
+    public function testConcentrationHasManyProducts(): void
+    {
+        $concentration = Concentration::factory()
+            ->has(
+                Product::factory()
+                    ->for(Brand::factory())
+                    ->for(Category::factory())
+                    ->for(Concentration::factory())
+            )
+            ->create();
+        $products = $concentration->products;
+
+        $this->assertInstanceOf(Collection::class, $products);
+    }
 }
