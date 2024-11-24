@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             ConcentrationSeeder::class,
+            SizeSeeder::class,
         ]);
     }
 }
