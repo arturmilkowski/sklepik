@@ -28,4 +28,22 @@ class SizeTest extends TestCase
             'name' => $size->name,
         ]);
     }
+
+    public function testSizeHasManyTypes(): void
+    {
+        $product = Product::factory()
+            ->for(Brand::factory())
+            ->for(Category::factory())
+            ->for(Concentration::factory())
+            ->create();
+
+        $size = Size::factory()
+            ->has(
+                Type::factory()->for($product)
+            )
+            ->create();
+        $types = $size->types;
+
+        $this->assertInstanceOf(Collection::class, $types);
+    }
 }

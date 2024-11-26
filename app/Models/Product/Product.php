@@ -38,4 +38,9 @@ class Product extends Model
     {
         return $this->belongsTo(Concentration::class);
     }
+
+    public function types(): HasMany
+    {
+        return $this->hasMany(Type::class);
+    }
 }

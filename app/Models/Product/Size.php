@@ -4,6 +4,7 @@ namespace App\Models\Product;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Size extends Model
 {
@@ -15,4 +16,9 @@ class Size extends Model
         'name',
         'description',
     ];
+
+    public function types(): HasMany
+    {
+        return $this->hasMany(Type::class);
+    }
 }

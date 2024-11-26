@@ -1,6 +1,4 @@
 <x-layout>
     <x-slot:title>O firmie</x-slot>
-    <div>
-        O firmie
-    </div>
+    <h1>O firmie</h1>
 </x-layout>
