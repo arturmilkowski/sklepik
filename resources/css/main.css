@@ -1,0 +1,18 @@
+a:hover {
+    text-decoration: none;
+}
+a.active {
+    color: red;
+}
+
+.human {
+    visibility: hidden;
+    font-size: small;
+}
+
+footer {
+    font-size: small;
+    border-top: 1px solid black;
+    padding-top: 0.5rem;
+    margin-top: 2rem;
+}
