@@ -51,6 +51,21 @@ class PageTest extends TestCase
         ];
         $response = $this->post(route('pages.contacts.store'), $contactForm);
 
-        $response->assertStatus(200); // 302
+        $response->assertStatus(302);
+    }
+
+    public function testStoreSpamContact(): void
+    {
+        $this->withoutExceptionHandling();
+        $contactForm = [
+            'subject' => 'Subject',
+            'content' => 'Content',
+            'author' => 'John Doe',
+            'email' => 'test@email.pl',
+            'i_am_not_a_robot' => true, // this is spam
+        ];
+        $response = $this->post(route('pages.contacts.store'), $contactForm);
+
+        $response->assertRedirectToRoute('pages.index');
     }
 }

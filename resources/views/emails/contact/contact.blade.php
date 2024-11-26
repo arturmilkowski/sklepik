@@ -1,0 +1,4 @@
+{{ $validated['content'] }}
+
+
+{{ $validated['author'] }}

@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact\Contact;
+use App\Http\Requests\Contact\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -14,9 +17,8 @@ class ContactController extends Controller
         return view('page.contact.create');
     }
 
-    public function store() // : RedirectResponse
+    public function store(ContactRequest $request): RedirectResponse
     {
-        /*
         $spam = $request->input('i_am_not_a_robot');
         if ($spam) {
             return redirect()->route('pages.index');
@@ -25,7 +27,6 @@ class ContactController extends Controller
         Mail::to(env('MAIL_FROM_ADDRESS', 'hello@example.com'), env('MAIL_FROM_NAME'))->send(new Contact($validated));
 
         return redirect()->route('pages.contacts.thank')->with('mail_sent', 'mail sent');
-        */
     }
 
     public function thank(): View | RedirectResponse
