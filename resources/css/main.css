@@ -5,6 +5,14 @@ a.active {
     color: red;
 }
 
+
+.product {
+    border: 1px dashed black;
+    margin-bottom: 10rem;
+    /* display: flex; */
+}
+
+
 .human {
     visibility: hidden;
     font-size: small;

@@ -1,6 +1,9 @@
 <x-layout>
     <x-slot:title>Strona główna</x-slot>
-    <div>
-        Strona główna
-    </div>
+    <h1>Strona główna</h1>
+    @forelse ($products as $product)
+    <x-products.product :product="$product" />
+    @empty
+    <p>Brak produktów</p>
+    @endforelse
 </x-layout>

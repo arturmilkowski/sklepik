@@ -11,10 +11,10 @@ class PageController extends Controller
 {
     public function index(): View
     {
-        // $products = Product::latest()->get();
+        $products = Product::latest()->get();
 
         return view('page.index', [
-            // 'products' => $products,
+            'products' => $products,
         ]);
     }
 
