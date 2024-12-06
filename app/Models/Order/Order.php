@@ -14,10 +14,10 @@ class Order extends Model
     use HasUlids;
 
     protected $fillable = [
-        'orderable_id',
-        // 'orderable_type',
-        // 'status_id',
-        // 'sale_document_id',
+        // 'orderable_id',
+        'orderable_type',
+        'status_id',
+        'sale_document_id',
         'total_price',
         'delivery_cost',
         'total_price_and_delivery_cost',
@@ -30,14 +30,11 @@ class Order extends Model
      *
      * @var array
      */
-    /*
     protected $attributes = [
         'status_id' => 1,
         'sale_document_id' => 1,
     ];
-    */
 
-    /*
     public function orderable(): MorphTo
     {
         return $this->morphTo();
@@ -57,5 +54,4 @@ class Order extends Model
     {
         return $this->hasMany(Item::class);
     }
-        */
 }

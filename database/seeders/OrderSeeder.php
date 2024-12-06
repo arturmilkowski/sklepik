@@ -16,9 +16,9 @@ class OrderSeeder extends Seeder
         DB::table('orders')->insert([
             'id' => '02h9dt42pn29hfx499sk7tbh1a',
             // 'orderable_id' => 1,
-            // 'orderable_type' => 'App\Models\Customer\Customer',
-            // 'status_id' => 1,
-            // 'sale_document_id' => 1,
+            'orderable_type' => 'App\Models\Customer\Customer',
+            'status_id' => 1,
+            'sale_document_id' => 1,
             'total_price' => 100,
             'delivery_cost' => 15,
             'total_price_and_delivery_cost' => 115,

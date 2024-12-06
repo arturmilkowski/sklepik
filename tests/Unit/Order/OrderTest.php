@@ -22,12 +22,12 @@ class OrderTest extends TestCase
 
     public function testCreateOrder(): void
     {
-        // $status = Status::factory()->create();
-        // $saleDocument = SaleDocument::factory()->create();
+        $status = Status::factory()->create();
+        $saleDocument = SaleDocument::factory()->create();
 
         $order = Order::factory()
-            // ->for($status)
-            // >for($saleDocument)
+            ->for($status)
+            ->for($saleDocument)
             // ->for(Customer::factory(), 'orderable')
             ->create();
 
