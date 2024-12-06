@@ -31,10 +31,9 @@ class Profile extends Model
     {
         return $this->belongsTo(Voivodeship::class);
     }
-    /*
+
     public function deliveryAddress(): HasOne
     {
         return $this->hasOne(DeliveryAddress::class);
     }
-    */
 }

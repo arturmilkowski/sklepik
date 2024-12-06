@@ -60,7 +60,6 @@ class ProfileTest extends TestCase
         $this->assertInstanceOf(Voivodeship::class, $profile->voivodeship);
     }
 
-    /*
     public function testProfileHasOneDeliveryAddress(): void
     {
         $profile = Profile::factory()
@@ -73,5 +72,4 @@ class ProfileTest extends TestCase
 
         $this->assertInstanceOf(DeliveryAddress::class, $deliveryAddress);
     }
-        */
 }

@@ -17,10 +17,8 @@ class Status extends Model
         'description'
     ];
 
-    /*
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
-    */
 }

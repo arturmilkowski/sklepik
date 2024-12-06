@@ -7,8 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Collection;
 use App\Models\Geo\Voivodeship;
 use App\Models\User;
-
-// use App\Models\User\{Profile, DeliveryAddress};
+use App\Models\User\{Profile, DeliveryAddress};
 
 class VoivodeshipTest extends TestCase
 {
@@ -29,15 +28,13 @@ class VoivodeshipTest extends TestCase
         $this->assertDatabaseHas('voivodeships', ['name' => $voivodeship->name]);
     }
 
-    /*
     public function testVoivodeshipHasManyProfiles(): void
     {
         $voivodeship = Voivodeship::factory()->has(Profile::factory()->for(User::factory()))->create();
 
         $this->assertInstanceOf(Collection::class, $voivodeship->profiles);
     }
-    */
-    /*
+
     public function testVoivodeshipHasManyDeliveryAddresses(): void
     {
         $voivodeship = Voivodeship::factory()
@@ -54,5 +51,4 @@ class VoivodeshipTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $voivodeship->deliveryAddresses);
     }
-    */
 }

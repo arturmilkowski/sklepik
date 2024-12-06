@@ -14,7 +14,7 @@ class CustomerSeeder extends Seeder
     public function run(): void
     {
         DB::table('customers')->insert([
-            // 'voivodeship_id' => 7,
+            'voivodeship_id' => 7,
             'name' => 'Jan',
             'surname' => 'Kowalski',
             'street' => 'Na Wspólnej 1',
@@ -26,7 +26,7 @@ class CustomerSeeder extends Seeder
             'updated_at' => now(),
         ]);
         DB::table('customers')->insert([
-            // 'voivodeship_id' => 7,
+            'voivodeship_id' => 7,
             'name' => 'Józef',
             'surname' => 'Nowak',
             'street' => 'Woronicza 17',

@@ -14,7 +14,7 @@ class Order extends Model
     use HasUlids;
 
     protected $fillable = [
-        // 'orderable_id',
+        'orderable_id',
         'orderable_type',
         'status_id',
         'sale_document_id',

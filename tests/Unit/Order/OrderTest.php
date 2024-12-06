@@ -28,13 +28,13 @@ class OrderTest extends TestCase
         $order = Order::factory()
             ->for($status)
             ->for($saleDocument)
-            // ->for(Customer::factory(), 'orderable')
+            ->for(Customer::factory(), 'orderable')
             ->create();
 
         $this->assertDatabaseHas('orders', [
-            // 'orderable_type' => 'App\Models\Customer\Customer',
-            // 'status_id' => $order->status->id,
-            // 'sale_document_id' => $saleDocument->id,
+            'orderable_type' => 'App\Models\Customer\Customer',
+            'status_id' => $order->status->id,
+            'sale_document_id' => $saleDocument->id,
             'total_price' => $order->total_price,
             'delivery_cost' => $order->delivery_cost,
             'total_price_and_delivery_cost' => $order->total_price_and_delivery_cost,
@@ -43,21 +43,18 @@ class OrderTest extends TestCase
         ]);
 
         $order = Order::factory()
-            // >for($status)
-            // ->for($saleDocument)
-            // ->for(User::factory(), 'orderable')
+            ->for($status)
+            ->for($saleDocument)
+            ->for(User::factory(), 'orderable')
             ->create();
 
         $this->assertModelExists($order);
 
-        /*
         $this->assertDatabaseHas('orders', [
             'orderable_type' => 'App\Models\User',
         ]);
-        */
     }
 
-    /*
     public function testOrderBelongsToStatus(): void
     {
         $order = Order::factory()
@@ -91,5 +88,4 @@ class OrderTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $order->items);
     }
-    */
 }

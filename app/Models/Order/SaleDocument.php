@@ -4,6 +4,7 @@ namespace App\Models\Order;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SaleDocument extends Model
 {
@@ -16,10 +17,8 @@ class SaleDocument extends Model
         'description'
     ];
 
-    /*
     public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
-    */
 }

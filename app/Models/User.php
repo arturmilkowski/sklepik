@@ -6,11 +6,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\{HasOne, HasMany, MorphMany};
+use App\Models\User\Profile;
+use App\Models\Order\Order;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -44,5 +48,37 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function orders(): MorphMany
+    {
+        return $this->morphMany(Order::class, 'orderable')->orderBy('created_at', 'desc');
+    }
+
+    /*
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function replies(): HasMany
+    {
+        return $this->hasMany(Reply::class);
+    }
+    */
+
+    public function isAdmin(): bool
+    {
+        return $this->id == 1;
     }
 }

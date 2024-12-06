@@ -15,7 +15,7 @@ class OrderSeeder extends Seeder
     {
         DB::table('orders')->insert([
             'id' => '02h9dt42pn29hfx499sk7tbh1a',
-            // 'orderable_id' => 1,
+            'orderable_id' => 1,
             'orderable_type' => 'App\Models\Customer\Customer',
             'status_id' => 1,
             'sale_document_id' => 1,
@@ -27,7 +27,6 @@ class OrderSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        /*
         DB::table('orders')->insert([
             'id' => '01h9zax8drmqt15hn96qghg8gc',
             'orderable_id' => 1,
@@ -70,6 +69,5 @@ class OrderSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-        */
     }
 }

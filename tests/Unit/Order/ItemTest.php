@@ -22,9 +22,9 @@ class ItemTest extends TestCase
     public function testCreateOrderItem()
     {
         $order = Order::factory()
-            // ->for(Status::factory())
-            // ->for(SaleDocument::factory())
-            // ->for(Customer::factory(), 'orderable')
+            ->for(Status::factory())
+            ->for(SaleDocument::factory())
+            ->for(Customer::factory(), 'orderable')
             ->create();
         $item = Item::factory()->for($order)->create();
 
@@ -47,9 +47,9 @@ class ItemTest extends TestCase
         $item = Item::factory()
             ->for(
                 Order::factory()
-                // ->for(Status::factory())
-                // ->for(SaleDocument::factory())
-                // ->for(Customer::factory(), 'orderable')
+                    ->for(Status::factory())
+                    ->for(SaleDocument::factory())
+                    ->for(Customer::factory(), 'orderable')
             )
             ->create();
 

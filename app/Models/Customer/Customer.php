@@ -14,7 +14,7 @@ class Customer extends Model
     use HasFactory;
 
     protected $fillable = [
-        // 'voivodeship_id',
+        'voivodeship_id',
         'name',
         'surname',
         'street',
@@ -24,16 +24,13 @@ class Customer extends Model
         'phone',
     ];
 
-    /*
     public function voivodeship(): BelongsTo
     {
         return $this->belongsTo(Voivodeship::class);
     }
-    */
-    /*
+
     public function order(): MorphOne
     {
         return $this->morphOne(Order::class, 'orderable');
     }
-    */
 }
