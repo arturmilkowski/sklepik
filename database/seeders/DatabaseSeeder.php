@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             OrderSeeder::class,
             ItemSeeder::class,
             PostSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
