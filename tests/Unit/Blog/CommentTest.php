@@ -70,7 +70,7 @@ class CommentTest extends TestCase
 
         $this->assertInstanceOf(User::class, $user);
     }
-    /*
+
     public function testCommentHasManyReplies(): void
     {
         $post = Post::factory()->for(User::factory())->create();
@@ -85,5 +85,4 @@ class CommentTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $replies);
     }
-    */
 }

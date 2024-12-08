@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\{HasOne, HasMany, MorphMany};
 use App\Models\User\Profile;
 use App\Models\Order\Order;
+use App\Models\Blog\{Post, Comment, Reply};
 
 class User extends Authenticatable
 {
@@ -60,7 +61,6 @@ class User extends Authenticatable
         return $this->morphMany(Order::class, 'orderable')->orderBy('created_at', 'desc');
     }
 
-    /*
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
@@ -75,7 +75,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reply::class);
     }
-    */
 
     public function isAdmin(): bool
     {

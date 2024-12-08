@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\User\Profile;
 use App\Models\Geo\Voivodeship;
 use App\Models\Order\Order;
+use App\Models\Blog\{Post, Comment, Reply};
 
 class UserTest extends TestCase
 {
@@ -49,7 +50,6 @@ class UserTest extends TestCase
         $this->assertInstanceOf(Collection::class, $user->orders);
     }
 
-    /*
     public function testUserHasManyPosts(): void
     {
         $user = User::factory()
@@ -76,5 +76,4 @@ class UserTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $user->replies);
     }
-    */
 }
