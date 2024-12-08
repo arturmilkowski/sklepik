@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             CommentSeeder::class,
             ReplySeeder::class,
+            TagSeeder::class,
         ]);
     }
 }

@@ -51,7 +51,7 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $post->comments);
     }
-    /*
+
     public function testPostBelongsToManyTags(): void
     {
         $user = User::factory()->create();
@@ -62,5 +62,4 @@ class PostTest extends TestCase
 
         $this->assertInstanceOf(Collection::class, $post->tags);
     }
-    */
 }
