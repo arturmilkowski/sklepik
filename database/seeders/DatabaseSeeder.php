@@ -22,13 +22,21 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserSeeder::class,
+            VoivodeshipSeeder::class,
+            ProfileSeeder::class,
+            DeliveryAddressSeeder::class,
+            CustomerSeeder::class,
             BrandSeeder::class,
             CategorySeeder::class,
             ConcentrationSeeder::class,
             SizeSeeder::class,
             ProductSeeder::class,
             TypeSeeder::class,
-            // CustomerSeeder::class,
+            StatusSeeder::class,
+            SaleDocumentSeeder::class,
+            OrderSeeder::class,
+            ItemSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
