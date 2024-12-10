@@ -4,17 +4,13 @@ namespace App\Http\Controllers\Cart;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-
-// use App\Services\Cart;
+use App\Services\Cart;
 
 class DestroyAllController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(): RedirectResponse
+    public function __invoke(Cart $cart): RedirectResponse
     {
-        // $cart->removeAll();
+        $cart->removeAll();
 
         return back();
     }

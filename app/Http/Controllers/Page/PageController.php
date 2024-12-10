@@ -6,15 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Product\Product;
+use App\Services\Cart;
 
 class PageController extends Controller
 {
-    public function index(): View
+    public function index(Cart $cart): View
     {
         $products = Product::latest()->get();
 
         return view('page.index', [
             'products' => $products,
+            'cart' => $cart
         ]);
     }
 
