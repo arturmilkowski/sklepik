@@ -4,7 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Page\{PageController, ContactController};
 use App\Http\Controllers\Product\ProductController;
-
+use App\Http\Controllers\Cart\{
+    StoreController as CartStoreController,
+    DestroyController as CartDestroyController,
+    DestroyAllController as CartDestroyAllController
+};
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -14,6 +18,10 @@ Route::get('/dziekujemy-za-kontakt', [ContactController::class, 'thank'])->name(
 
 Route::get('/produkty/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/produkty', [ProductController::class, 'index'])->name('products.index');
+
+Route::post('/dodaj/{type}', CartStoreController::class)->name('cart.store');
+Route::delete('/usun/{type}', CartDestroyController::class)->name('cart.destroy');
+Route::get('/usun', CartDestroyAllController::class)->name('cart.destroy.all');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

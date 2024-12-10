@@ -35,10 +35,10 @@
                         </td>
                         <td>
                             @if ($type->quantity > 0)
-                            {{-- <form action="{{ route('cart.store', [$type->id]) }}" method="POST">
+                            <form action="{{ route('cart.store', [$type->id]) }}" method="POST">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit">Do koszyka</button>
-                            </form> --}}
+                            </form>
                             @else
                             Wszystkie sprzedane
                             @endif
