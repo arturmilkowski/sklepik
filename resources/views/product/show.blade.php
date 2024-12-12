@@ -1,6 +1,9 @@
 <x-layout>
     <x-slot:title>Produkt</x-slot>
     <h1>Produkt</h1>
+    @if ($cart->itemsCount())
+    <x-cart :cart="$cart" />
+    @endif
     <div class="product-show">
         <div class="product-show-image">
             @if($product->img)

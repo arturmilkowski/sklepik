@@ -9,6 +9,7 @@ use App\Http\Controllers\Cart\{
     DestroyController as CartDestroyController,
     DestroyAllController as CartDestroyAllController
 };
+use App\Http\Controllers\Order\CheckoutController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -22,6 +23,8 @@ Route::get('/produkty', [ProductController::class, 'index'])->name('products.ind
 Route::post('/dodaj/{type}', CartStoreController::class)->name('cart.store');
 Route::delete('/usun/{type}', CartDestroyController::class)->name('cart.destroy');
 Route::get('/usun', CartDestroyAllController::class)->name('cart.destroy.all');
+
+Route::get('/kasa', CheckoutController::class)->name('orders.checkout.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 use App\Models\Product\Product;
+use App\Services\Cart;
 
 class ProductController extends Controller
 {
@@ -17,9 +18,10 @@ class ProductController extends Controller
         ]);
     }
 
-    public function show(Product $product): View
+    public function show(Cart $cart, Product $product): View
     {
         return view('product.show', [
+            'cart' => $cart,
             'product' => $product
         ]);
     }

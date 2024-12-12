@@ -61,7 +61,7 @@
                 </a>
             </td>
             <td>
-                <a href="{{-- route('orders.checkout.index') --}}" title="Do kasy">
+                <a href="{{ route('orders.checkout.index') }}" title="Do kasy">
                     Do kasy
                 </a>
             </td>
