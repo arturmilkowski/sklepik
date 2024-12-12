@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Services\Cart;
 
 class CheckoutController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function __invoke(Cart $cart)
     {
         if ($cart->isEmpty()) {

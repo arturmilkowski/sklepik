@@ -9,7 +9,7 @@ use App\Http\Controllers\Cart\{
     DestroyController as CartDestroyController,
     DestroyAllController as CartDestroyAllController
 };
-use App\Http\Controllers\Order\CheckoutController;
+use App\Http\Controllers\Order\{CheckoutController, WithoutRegistrationController,};
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -25,6 +25,10 @@ Route::delete('/usun/{type}', CartDestroyController::class)->name('cart.destroy'
 Route::get('/usun', CartDestroyAllController::class)->name('cart.destroy.all');
 
 Route::get('/kasa', CheckoutController::class)->name('orders.checkout.index');
+
+Route::get('/zamow-bez-rejestracji', [WithoutRegistrationController::class, 'create'])->name('orders.without-registration.create');
+Route::post('/wyslij-zamowienie-bez-rejestracji', [WithoutRegistrationController::class, 'store'])->name('orders.without-registration.store');
+Route::view('/dziekujemy-za-zamowienie-bez-rejestracji', 'order.thank.without-registration')->name('orders.thank.without-registration');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
