@@ -9,7 +9,11 @@ use App\Http\Controllers\Cart\{
     DestroyController as CartDestroyController,
     DestroyAllController as CartDestroyAllController
 };
-use App\Http\Controllers\Order\{CheckoutController, WithoutRegistrationController,};
+use App\Http\Controllers\Order\{
+    CheckoutController,
+    WithoutRegistrationController,
+    WithRegistrationController
+};
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -33,6 +37,11 @@ Route::view('/dziekujemy-za-zamowienie-bez-rejestracji', 'order.thank.without-re
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/zamow', [WithRegistrationController::class, 'create'])->name('orders.with-registration.create');
+    Route::post('/wyslij-zamowienie', [WithRegistrationController::class, 'store'])->name('orders.with-registration.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

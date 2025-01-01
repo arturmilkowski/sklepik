@@ -18,7 +18,7 @@
             <a href="{{ route('orders.without-registration.create') }}">Zamów bez rejestracji</a>
             @endguest
             @auth
-            <a href="{{-- route('orders.with-registration.create') --}}">Zamów</a>
+            <a href="{{ route('orders.with-registration.create') }}">Zamów</a>
             @endauth
         </p>
     </main>
