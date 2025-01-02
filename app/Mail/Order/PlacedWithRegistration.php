@@ -41,7 +41,7 @@ class PlacedWithRegistration extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.order.placed-with-registration',
+            text: 'emails.order.placed-with-registration',
         );
     }
 

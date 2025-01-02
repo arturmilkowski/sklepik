@@ -12,8 +12,11 @@
                     @if (!$hasProfile)
                     <x-link href="{{ route('backend.users.profiles.create') }}">Uzupełnij profil</x-link>
                     @endif
+
+                    @if ($hasProfile)
                     @if ($hasCart)
                     <x-link href="{{ route('orders.with-registration.create') }}" title="">Przejdź do zamówienia</x-link>
+                    @endif
                     @endif
                 </div>
             </div>

@@ -12,7 +12,8 @@ use Illuminate\Mail\Mailables\Address;
 
 class Contact extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable;
+    use SerializesModels;
 
     /**
      * Create a new message instance.
@@ -39,7 +40,7 @@ class Contact extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact.contact',
+            text: 'emails.contact.contact',
         );
     }
 

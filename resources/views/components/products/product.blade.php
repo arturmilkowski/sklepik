@@ -15,7 +15,7 @@
                     </a>
                 </h2>
                 <h3>{{ $product->category->name }} {{ $product->concentration->name }}</h3>
-                <p>{!! $product->description !!}</p>
+                <p>{!! nl2br($product->description) !!}</p>
                 <p>
                     <a href="{{ route('products.show', $product) }}" title="{{ $product->name }}">Pokaż</a>
                 </p>

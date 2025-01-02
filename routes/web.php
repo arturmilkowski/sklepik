@@ -39,7 +39,7 @@ Route::get('/kasa', CheckoutController::class)->name('orders.checkout.index');
 Route::get('/zamow-bez-rejestracji', [WithoutRegistrationController::class, 'create'])->name('orders.without-registration.create');
 Route::post('/wyslij-zamowienie-bez-rejestracji', [WithoutRegistrationController::class, 'store'])->name('orders.without-registration.store');
 Route::view('/dziekujemy-za-zamowienie-bez-rejestracji', 'order.thank.without-registration')->name('orders.thank.without-registration');
-
+Route::view('/dziekujemy-za-zamowienie', 'order.thank.with-registration')->name('orders.thank.with-registration');
 /*
 Route::get('/dashboard', function () {
     return view('dashboard');

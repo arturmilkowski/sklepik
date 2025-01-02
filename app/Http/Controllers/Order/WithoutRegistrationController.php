@@ -66,7 +66,7 @@ class WithoutRegistrationController extends Controller
         $cart->decreaseProductTypeQuantity($items);
 
         PlacedWithoutRegistration::dispatch($cart, $order, $createdCustomer);
-        // $cart->clear();
+        $cart->clear();
 
         return redirect()->route('orders.thank.without-registration');
     }

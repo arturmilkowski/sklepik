@@ -65,7 +65,7 @@ class WithRegistrationController extends Controller
         $cart->decreaseProductTypeQuantity($items);
 
         PlacedWithRegistration::dispatch($cart, $savedOrder);
-        // $cart->clear();
+        $cart->clear();
 
         return redirect()->route('orders.thank.with-registration');
     }
