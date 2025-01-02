@@ -14,7 +14,10 @@ use App\Http\Controllers\Order\{
     WithoutRegistrationController,
     WithRegistrationController
 };
-use App\Http\Controllers\Backend\User\DashboardController;
+use App\Http\Controllers\Backend\User\{
+    DashboardController,
+    ProfileController as UserProfileController
+};
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -47,6 +50,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/zamow', [WithRegistrationController::class, 'create'])->name('orders.with-registration.create');
     Route::post('/wyslij-zamowienie', [WithRegistrationController::class, 'store'])->name('orders.with-registration.store');
+
+    Route::get('/konto/profil', [UserProfileController::class, 'show'])->name('backend.users.profiles.show');
+    Route::get('/konto/profil/dodaj', [UserProfileController::class, 'create'])->name('backend.users.profiles.create');
+    Route::post('/konto/profil', [UserProfileController::class, 'store'])->name('backend.users.profiles.store');
+    Route::patch('/konto/profil', [UserProfileController::class, 'update'])->name('backend.users.profiles.update');
 });
 
 Route::middleware('auth')->group(function () {

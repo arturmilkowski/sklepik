@@ -1,0 +1,1 @@
+<p class="flex space-x-4 mt-4">{{ $slot }}</p>
