@@ -53,9 +53,9 @@
                     <x-btn-group>
                         <x-link href="{{ route('profile.edit') }}">Edytuj</x-link>
                         @if($item->profile->deliveryAddress)
-                        <x-link href="{{-- route('backend.users.profiles.delivery-adresses.show') --}}">Dostawa na inny adres</x-link>
+                        <x-link href="{{ route('backend.users.profiles.delivery-adresses.show') }}">Dostawa na inny adres</x-link>
                         @else
-                        <x-link href="{{-- route('backend.users.profiles.delivery-adresses.create') --}}">Dodaj inny adres dostawy</x-link>
+                        <x-link href="{{ route('backend.users.profiles.delivery-adresses.create') }}">Dodaj inny adres dostawy</x-link>
                         @endif
                     </x-btn-group>
                 </div>

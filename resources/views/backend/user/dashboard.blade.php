@@ -10,10 +10,10 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @if (!$hasProfile)
-                    <a href="{{-- route('backend.users.profiles.create') --}}">Uzupełnij profil</a>
+                    <x-link href="{{ route('backend.users.profiles.create') }}">Uzupełnij profil</x-link>
                     @endif
                     @if ($hasCart)
-                    <a href="{{-- route('orders.with-registration.create') --}}" title="">Przejdź do zamówienia</a>
+                    <x-link href="{{ route('orders.with-registration.create') }}" title="">Przejdź do zamówienia</x-link>
                     @endif
                 </div>
             </div>
