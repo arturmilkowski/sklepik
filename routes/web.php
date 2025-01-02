@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\User\{
     DashboardController,
     ProfileController as UserProfileController,
     DeliveryAddressController as UserDeliveryAddressController,
+    OrderController as UserOrderController
 };
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
@@ -64,6 +65,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/konto/profil/adres-dostawy', [UserDeliveryAddressController::class, 'update'])->name('backend.users.profiles.delivery-adresses.update');
     Route::delete('/konto/profil/adres-dostawy', [UserDeliveryAddressController::class, 'destroy'])->name('backend.users.profiles.delivery-adresses.destroy');
 
+    Route::resource('/konto/zamowienia', UserOrderController::class)
+        ->names('backend.users.orders')
+        ->only(['index', 'show'])
+        ->parameters(['zamowienia' => 'order']);
 });
 
 Route::middleware('auth')->group(function () {
