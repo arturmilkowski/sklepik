@@ -14,6 +14,7 @@ use App\Http\Controllers\Order\{
     WithoutRegistrationController,
     WithRegistrationController
 };
+use App\Http\Controllers\Backend\User\DashboardController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -34,11 +35,16 @@ Route::get('/zamow-bez-rejestracji', [WithoutRegistrationController::class, 'cre
 Route::post('/wyslij-zamowienie-bez-rejestracji', [WithoutRegistrationController::class, 'store'])->name('orders.without-registration.store');
 Route::view('/dziekujemy-za-zamowienie-bez-rejestracji', 'order.thank.without-registration')->name('orders.thank.without-registration');
 
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+*/
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
     Route::get('/zamow', [WithRegistrationController::class, 'create'])->name('orders.with-registration.create');
     Route::post('/wyslij-zamowienie', [WithRegistrationController::class, 'store'])->name('orders.with-registration.store');
 });
