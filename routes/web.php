@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\User\{
     DeliveryAddressController as UserDeliveryAddressController,
     OrderController as UserOrderController
 };
+use App\Http\Controllers\Backend\Admin\User\UserController as AdminUserController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -76,5 +77,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('/konto/admin/uzytkownicy', AdminUserController::class)
+    ->names('backend.admins.users')
+    ->only(['index', 'show', 'edit', 'destroy'])
+    ->parameters(['uzytkownicy' => 'user']);
 
 require __DIR__.'/auth.php';
