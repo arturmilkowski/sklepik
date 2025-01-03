@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('backend.admins.orders.index')" :active="request()->routeIs('backend.admins.orders.index')">
+                        Zamówienia
+                    </x-nav-link>
                     <x-nav-link :href="route('backend.admins.customers.index')" :active="request()->routeIs('backend.admins.customers.index')">
                         Klienci
                     </x-nav-link>
