@@ -21,7 +21,10 @@ use App\Http\Controllers\Backend\User\{
     OrderController as UserOrderController
 };
 use App\Http\Controllers\Backend\Admin\User\UserController as AdminUserController;
-use App\Http\Controllers\Backend\Admin\Customer\CustomerController as AdminCustomerController;
+use App\Http\Controllers\Backend\Admin\Customer\{
+    CustomerController as AdminCustomerController,
+    OrderController as AdminCustomerOrderController
+};
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -85,5 +88,9 @@ Route::resource('/konto/admin/uzytkownicy', AdminUserController::class)
     ->parameters(['uzytkownicy' => 'user']);
 
 Route::resource('/konto/admin/klienci', AdminCustomerController::class)->names('backend.admins.customers')->parameters(['klienci' => 'customer']);
+Route::resource('/konto/admin/klienci/zamowienia', AdminCustomerOrderController::class)
+    ->names('backend.admins.customers.orders')
+    ->parameters(['zamowienia' => 'customer']) // zamowienia it is customer
+    ->only(['edit', 'update', 'destroy']);
 
 require __DIR__.'/auth.php';

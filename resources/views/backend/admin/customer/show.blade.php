@@ -121,7 +121,7 @@
                     </table>
                     <x-btn-group>
                         <x-link href="{{ route('backend.admins.customers.index') }}">Powrót</x-link>
-                        <x-link href="{{-- route('backend.admins.customers.orders.edit', $item) --}}">Edytuj</x-link>
+                        <x-link href="{{ route('backend.admins.customers.orders.edit', $item) }}">Edytuj</x-link>
                     </x-btn-group>
                     @else
                     <div>Brak zamówienia</div>
