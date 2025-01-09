@@ -26,6 +26,8 @@ use App\Http\Controllers\Backend\Admin\Customer\{
     OrderController as AdminCustomerOrderController
 };
 use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderController;
+use App\Http\Controllers\Backend\Admin\Product\Brand\BrandController;
+use App\Http\Controllers\Backend\Admin\Product\Category\CategoryController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -95,5 +97,8 @@ Route::resource('/konto/admin/klienci/zamowienia', AdminCustomerOrderController:
     ->only(['edit', 'update', 'destroy']);
 
 Route::resource('/konto/admin/zamowienia', AdminOrderController::class)->names('backend.admins.orders')->parameters(['zamowienia' => 'order']);
+
+Route::resource('/konto/admin/produkty/firmy', BrandController::class)->names('backend.admins.products.brands')->parameters(['firmy' => 'brand']);
+Route::resource('/konto/admin/produkty/kategorie', CategoryController::class)->names('backend.admins.products.categories')->parameters(['kategorie' => 'category']);
 
 require __DIR__.'/auth.php';
