@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Product\Product;
 
-class ProductImgController extends Controller
+class ImgController extends Controller
 {
     private $filepath = 'public/images/products/';
 
