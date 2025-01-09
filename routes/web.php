@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\Admin\Product\Category\CategoryController;
 use App\Http\Controllers\Backend\Admin\Product\Concentration\ConcentrationController;
 use App\Http\Controllers\Backend\Admin\Product\Size\SizeController;
 use App\Http\Controllers\Backend\Admin\Product\Product\{ProductController as AdminProductController, ProductImgController as AdminProductImgController};
+use App\Http\Controllers\Backend\Admin\Product\Product\Type\TypeController as AdminTypeController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -101,5 +102,6 @@ Route::resource('/konto/admin/produkty/koncentracje', ConcentrationController::c
 Route::resource('/konto/admin/produkty/pojemnosci', SizeController::class)->names('backend.admins.products.sizes')->parameters(['pojemnosci' => 'size']);
 Route::resource('/konto/admin/produkty/produkty', AdminProductController::class)->names('backend.admins.products.products')->parameters(['produkty' => 'product']);
 Route::resource('/konto/admin/produkty/produkty/obrazki', AdminProductImgController::class)->names('backend.admins.products.products.images')->parameters(['obrazki' => 'product'])->only(['show', 'destroy']);
+Route::resource('/konto/admin/produkty/produkty.typy', AdminTypeController::class)->names('backend.admins.products.types')->parameters(['produkty' => 'product', 'typy' => 'type']);
 
 require __DIR__.'/auth.php';
