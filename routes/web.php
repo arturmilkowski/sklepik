@@ -28,6 +28,7 @@ use App\Http\Controllers\Backend\Admin\Customer\{
 use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderController;
 use App\Http\Controllers\Backend\Admin\Product\Brand\BrandController;
 use App\Http\Controllers\Backend\Admin\Product\Category\CategoryController;
+use App\Http\Controllers\Backend\Admin\Product\Concentration\ConcentrationController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -48,12 +49,6 @@ Route::get('/zamow-bez-rejestracji', [WithoutRegistrationController::class, 'cre
 Route::post('/wyslij-zamowienie-bez-rejestracji', [WithoutRegistrationController::class, 'store'])->name('orders.without-registration.store');
 Route::view('/dziekujemy-za-zamowienie-bez-rejestracji', 'order.thank.without-registration')->name('orders.thank.without-registration');
 Route::view('/dziekujemy-za-zamowienie', 'order.thank.with-registration')->name('orders.thank.with-registration');
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-*/
-
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
@@ -100,5 +95,6 @@ Route::resource('/konto/admin/zamowienia', AdminOrderController::class)->names('
 
 Route::resource('/konto/admin/produkty/firmy', BrandController::class)->names('backend.admins.products.brands')->parameters(['firmy' => 'brand']);
 Route::resource('/konto/admin/produkty/kategorie', CategoryController::class)->names('backend.admins.products.categories')->parameters(['kategorie' => 'category']);
+Route::resource('/konto/admin/produkty/koncentracje', ConcentrationController::class)->names('backend.admins.products.concentrations')->parameters(['koncentracje' => 'concentration']);
 
 require __DIR__.'/auth.php';
