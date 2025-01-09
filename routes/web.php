@@ -32,6 +32,7 @@ use App\Http\Controllers\Backend\Admin\Product\Concentration\ConcentrationContro
 use App\Http\Controllers\Backend\Admin\Product\Size\SizeController;
 use App\Http\Controllers\Backend\Admin\Product\Product\{ProductController as AdminProductController, ImgController as AdminProductImgController};
 use App\Http\Controllers\Backend\Admin\Product\Product\Type\{TypeController as AdminTypeController, ImgController as AdminTypeImgController};
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -73,21 +74,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('/konto/zamowienia', UserOrderController::class)->names('backend.users.orders')->only(['index', 'show'])->parameters(['zamowienia' => 'order']);
 
-    // Route::middleware(['isAdmin'])->group(function () {
-    Route::resource('/konto/admin/uzytkownicy', AdminUserController::class)->names('backend.admins.users')->only(['index', 'show', 'edit', 'destroy'])->parameters(['uzytkownicy' => 'user']);
-    Route::resource('/konto/admin/klienci', AdminCustomerController::class)->names('backend.admins.customers')->parameters(['klienci' => 'customer']);
-    Route::resource('/konto/admin/klienci/zamowienia', AdminCustomerOrderController::class)->names('backend.admins.customers.orders')->parameters(['zamowienia' => 'customer'])->only(['edit', 'update', 'destroy']);
-    Route::resource('/konto/admin/zamowienia', AdminOrderController::class)->names('backend.admins.orders')->parameters(['zamowienia' => 'order']);
-    Route::view('/konto/admin/produkty/index', 'backend.admin.product.index.index')->name('backend.admins.products.index');
-    Route::resource('/konto/admin/produkty/firmy', BrandController::class)->names('backend.admins.products.brands')->parameters(['firmy' => 'brand']);
-    Route::resource('/konto/admin/produkty/kategorie', CategoryController::class)->names('backend.admins.products.categories')->parameters(['kategorie' => 'category']);
-    Route::resource('/konto/admin/produkty/koncentracje', ConcentrationController::class)->names('backend.admins.products.concentrations')->parameters(['koncentracje' => 'concentration']);
-    Route::resource('/konto/admin/produkty/pojemnosci', SizeController::class)->names('backend.admins.products.sizes')->parameters(['pojemnosci' => 'size']);
-    Route::resource('/konto/admin/produkty/produkty', AdminProductController::class)->names('backend.admins.products.products')->parameters(['produkty' => 'product']);
-    Route::resource('/konto/admin/produkty/produkty/obrazki', AdminProductImgController::class)->names('backend.admins.products.products.images')->parameters(['obrazki' => 'product'])->only(['show', 'destroy']);
-    Route::resource('/konto/admin/produkty/produkty.typy', AdminTypeController::class)->names('backend.admins.products.types')->parameters(['produkty' => 'product', 'typy' => 'type']);
-    Route::resource('/konto/admin/produkty/produkty.typy.obrazki', AdminTypeImgController::class)->names('backend.admins.products.types.images')->parameters(['produkty' => 'product', 'typy' => 'type', 'obrazki' => 'type'])->only(['show', 'destroy']);
-    // });
+    Route::middleware(IsAdmin::class)->group(function () {
+        Route::resource('/konto/admin/uzytkownicy', AdminUserController::class)->names('backend.admins.users')->only(['index', 'show', 'edit', 'destroy'])->parameters(['uzytkownicy' => 'user']);
+        Route::resource('/konto/admin/klienci', AdminCustomerController::class)->names('backend.admins.customers')->parameters(['klienci' => 'customer']);
+        Route::resource('/konto/admin/klienci/zamowienia', AdminCustomerOrderController::class)->names('backend.admins.customers.orders')->parameters(['zamowienia' => 'customer'])->only(['edit', 'update', 'destroy']);
+        Route::resource('/konto/admin/zamowienia', AdminOrderController::class)->names('backend.admins.orders')->parameters(['zamowienia' => 'order']);
+        Route::view('/konto/admin/produkty/index', 'backend.admin.product.index.index')->name('backend.admins.products.index');
+        Route::resource('/konto/admin/produkty/firmy', BrandController::class)->names('backend.admins.products.brands')->parameters(['firmy' => 'brand']);
+        Route::resource('/konto/admin/produkty/kategorie', CategoryController::class)->names('backend.admins.products.categories')->parameters(['kategorie' => 'category']);
+        Route::resource('/konto/admin/produkty/koncentracje', ConcentrationController::class)->names('backend.admins.products.concentrations')->parameters(['koncentracje' => 'concentration']);
+        Route::resource('/konto/admin/produkty/pojemnosci', SizeController::class)->names('backend.admins.products.sizes')->parameters(['pojemnosci' => 'size']);
+        Route::resource('/konto/admin/produkty/produkty', AdminProductController::class)->names('backend.admins.products.products')->parameters(['produkty' => 'product']);
+        Route::resource('/konto/admin/produkty/produkty/obrazki', AdminProductImgController::class)->names('backend.admins.products.products.images')->parameters(['obrazki' => 'product'])->only(['show', 'destroy']);
+        Route::resource('/konto/admin/produkty/produkty.typy', AdminTypeController::class)->names('backend.admins.products.types')->parameters(['produkty' => 'product', 'typy' => 'type']);
+        Route::resource('/konto/admin/produkty/produkty.typy.obrazki', AdminTypeImgController::class)->names('backend.admins.products.types.images')->parameters(['produkty' => 'product', 'typy' => 'type', 'obrazki' => 'type'])->only(['show', 'destroy']);
+    });
 });
 
 Route::middleware('auth')->group(function () {

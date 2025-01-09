@@ -15,6 +15,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->isAdmin())
                     <x-nav-link :href="route('backend.admins.products.index')" :active="request()->routeIs('backend.admins.products.index')">
                         Produkty
                     </x-nav-link>
@@ -27,6 +28,7 @@
                     <x-nav-link :href="route('backend.admins.users.index')" :active="request()->routeIs('backend.admins.users.index')">
                         Użytkownicy
                     </x-nav-link>
+                    @endif
                     <x-nav-link :href="route('backend.users.orders.index')" :active="request()->routeIs('backend.users.orders.index')">
                         Zamówienia użytkownika
                     </x-nav-link>
