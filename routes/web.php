@@ -29,6 +29,7 @@ use App\Http\Controllers\Backend\Admin\Order\OrderController as AdminOrderContro
 use App\Http\Controllers\Backend\Admin\Product\Brand\BrandController;
 use App\Http\Controllers\Backend\Admin\Product\Category\CategoryController;
 use App\Http\Controllers\Backend\Admin\Product\Concentration\ConcentrationController;
+use App\Http\Controllers\Backend\Admin\Product\Size\SizeController;
 
 Route::get('/', [PageController::class, 'index'])->name('pages.index');
 Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
@@ -96,5 +97,6 @@ Route::resource('/konto/admin/zamowienia', AdminOrderController::class)->names('
 Route::resource('/konto/admin/produkty/firmy', BrandController::class)->names('backend.admins.products.brands')->parameters(['firmy' => 'brand']);
 Route::resource('/konto/admin/produkty/kategorie', CategoryController::class)->names('backend.admins.products.categories')->parameters(['kategorie' => 'category']);
 Route::resource('/konto/admin/produkty/koncentracje', ConcentrationController::class)->names('backend.admins.products.concentrations')->parameters(['koncentracje' => 'concentration']);
+Route::resource('/konto/admin/produkty/pojemnosci', SizeController::class)->names('backend.admins.products.sizes')->parameters(['pojemnosci' => 'size']);
 
 require __DIR__.'/auth.php';
