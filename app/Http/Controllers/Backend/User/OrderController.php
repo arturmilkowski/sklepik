@@ -33,7 +33,7 @@ class OrderController extends Controller
      */
     public function show(Order $order): View
     {
-        Gate::authorize('view', Auth::user(), Order::class);
+        Gate::authorize('view', $order);
 
         return view('backend.user.order.show', [
             'item' => $order

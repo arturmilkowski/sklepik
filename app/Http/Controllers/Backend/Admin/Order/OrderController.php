@@ -13,7 +13,7 @@ class OrderController extends Controller
 {
     public function index(): View
     {
-        $collection = Order::latest()->get(); // ->simplePaginate(10);
+        $collection = Order::latest()->get();
 
         return view('backend.admin.order.index', ['collection' => $collection]);
     }
