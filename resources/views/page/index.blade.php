@@ -1,12 +1,11 @@
 <x-layout>
-    <x-slot:title>Strona główna</x-slot>
-    <h1>Strona główna</h1>
-    @if ($cart->itemsCount())
+    <x-slot:title>Sklepik</x-slot>
+@if ($cart->itemsCount())
     <x-cart :cart="$cart" />
-    @endif
-    @forelse ($products as $product)
+@endif
+@forelse ($products as $product)
     <x-products.product :product="$product" />
-    @empty
+@empty
     <p>Brak produktów</p>
-    @endforelse
+@endforelse
 </x-layout>

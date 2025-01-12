@@ -1,15 +1,38 @@
-a:hover {
-    text-decoration: none;
-}
-a.active {
-    color: red;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    body {
+        font-family: "Playfair Display", serif;
+        font-optical-sizing: auto;
+        color: #44403c;
+        /* font-weight: <weight>;
+        font-style: normal; */
+    }
+
+    h1#logo {
+        font-family: "Share Tech Mono", serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    /* a {
+        border-bottom: 1px solid white;
+    } */
+    a:hover {
+        color: black;
+        /* border-bottom: 1px solid black; */
+    }
+    a.active {
+        color: #f59e0b;
+    }
 }
 
-
+/*
 .product {
     border: 1px dashed black;
     margin-bottom: 10rem;
-    /* display: flex; */
 }
 
 
@@ -24,3 +47,4 @@ footer {
     padding-top: 0.5rem;
     margin-top: 2rem;
 }
+*/
