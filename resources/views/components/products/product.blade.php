@@ -17,7 +17,7 @@
                 <h3 class="border-t-[1px] hover:border-dashed border-stone-900 pt-4 mb-10">
                     {{ $product->category->name }} {{ $product->concentration->name }}
                 </h3>
-                <p class="">{!! nl2br($product->description) !!}</p>
+                <p>{!! nl2br($product->description) !!}</p>
                 <p class="mt-8">
                     <a href="{{ route('products.show', $product) }}" title="{{ $product->name }}" class="border border-stone-900 hover:border-dashed hover:bg-stone-50 py-2 px-6 hover:background">Pokaż →</a>
                 </p>
