@@ -1,40 +1,45 @@
 <x-layout>
     <x-slot:title>Kontakt</x-slot>
-    <h1>Kontakt</h1>
-    <form action="{{ route('pages.contacts.store') }}" method="POST">
+
+    <div class="flex mb-24 mx-2">
+    <div class="w-2/6 border-t-[1px] hover:border-dashed border-stone-900 pt-4">-</div>
+    <form class="w-4/6 ml-2 border-t-[1px] hover:border-dashed border-stone-900 pt-4" action="{{ route('pages.contacts.store') }}" method="POST">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div>
-            <label for="subject">Temat</label>
-            <input type="text" name="subject" id="subject" value="{{ old('subject') }}" placeholder="Temat wiadomości" required>
+        <x-input-group>
+            <x-input-label1 for="subject">Temat</x-input-label1>
+            <x-input-text id="subject" name="subject" value="{{ old('subject') }}" placeholder="Temat wiadomości"></x-input-text>
             @error('subject')
-            <div>{{ $message }}</div>
+            <x-input-error1>{{ $message }}</x-input-error1>
             @enderror
-        </div>
-        <div>
-            <label for="content">Treść</label>
-            <textarea name="content" id="content" placeholder="Treść wiadomości" required>{{ old('content') }}</textarea>
+        </x-input-group>
+        <x-input-group>
+            <x-input-label1 for="content">Treść</x-input-label1>
+            <x-input-textarea id="content" name="content" placeholder="Treść wiadomości">{{ old('content') }}</x-input-textarea>
             @error('content')
-            <div>{{ $message }}</div>
+            <x-input-error1>{{ $message }}</x-input-error1>
             @enderror
-        </div>
-        <div>
-            <label for="author">Podpis</label>
-            <input type="text" name="author" id="author" value="{{ old('author') }}" placeholder="Podpis">
+        </x-input-group>
+        <x-input-group>  
+            <x-input-label1 for="author">Podpis</x-input-label1>
+            <x-input-text id="author" name="author" value="{{ old('author') }}" placeholder="Podpis"></x-input-text>
             @error('author')
-            <div>{{ $message }}</div>
+            <x-input-error1>{{ $message }}</x-input-error1>
             @enderror
-        </div>
-        <div>
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" value="{{ old('email') }}" placeholder="E-mail" required>
+        </x-input-group>
+        <x-input-group>
+            <x-input-label1 for="email">E-mail</x-input-label1>
+            <x-input-text type="email" id="email" name="email" value="{{ old('email') }}" placeholder="E-mail"></x-input-text>
             @error('email')
-            <div>{{ $message }}</div>
+            <x-input-error1>{{ $message }}</x-input-error1>
             @enderror
-        </div>
+        </x-input-group>
         <div class="human">
             <input type="checkbox" id="human" name="i_am_not_a_robot">
             <label for="human">I am not a robot</label>
         </div>
-        <button type="submit">Wyślij</button>
+        <x-input-group>
+            <button type="submit">Wyślij</button>
+        </x-input-group>
     </form>
+    </div>
 </x-layout>

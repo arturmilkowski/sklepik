@@ -19,7 +19,7 @@
                 </h3>
                 <p>{!! nl2br($product->description) !!}</p>
                 <p class="mt-8">
-                    <a href="{{ route('products.show', $product) }}" title="{{ $product->name }}" class="border border-stone-900 hover:border-dashed hover:bg-stone-50 py-2 px-6 hover:background">Pokaż →</a>
+                    <x-link-btn href="{{ route('products.show', $product) }}" title="{{ $product->name }}">Pokaż →</x-link-btn>
                 </p>
             </div>
         </div>

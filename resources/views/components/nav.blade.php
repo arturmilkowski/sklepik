@@ -1,13 +1,12 @@
-{{--  mx-2 border-stone-500 --}}
     <nav class="flex mx-2 gap-12 mb-24">
         <span class="w-2/6">-</span>
-        <a href="{{ route('pages.index') }}" @if(Route::currentRouteName()=='pages.index' )class="active" @endif title="Strona główna">Start</a>
-        <a href="{{ route('pages.about') }}" @if(Route::currentRouteName()=='pages.about' )class="active" @endif title="O firmie">O firmie</a>
-        <a href="{{ route('pages.contacts.create') }}" @if(Route::currentRouteName()=='pages.contacts.create' )class="active" @endif title="Kontakt">Kontakt</a>
+        <a href="{{ route('pages.index') }}" class="{{ Route::is('pages.index') ? 'text-orange-500' : '' }} hover:text-black dark:hover:text-orange-800" title="Strona główna">Start</a>
+        <a href="{{ route('pages.about') }}" class="{{ Route::is('pages.about') ? 'text-orange-500' : '' }} hover:text-black dark:hover:text-orange-800" title="O firmie">O firmie</a>
+        <a href="{{ route('pages.contacts.create') }}" class="{{ Route::is('pages.contacts.create') ? 'text-orange-500' : '' }} hover:text-black dark:hover:text-orange-800" title="Kontakt">Kontakt</a>
 @auth
-        <a href="{{ url('/dashboard') }}">Dashboard</a>
+        <a href="{{ url('/dashboard') }}" class="hover:text-black dark:hover:text-orange-800">Dashboard</a>
 @else
-        <a href="{{ route('login') }}">Zaloguj</a>
-        <a href="{{ route('register') }}">Zarejestruj</a>
+        <a href="{{ route('login') }}" class="hover:text-black dark:hover:text-orange-800">Zaloguj</a>
+        <a href="{{ route('register') }}" class="hover:text-black dark:hover:text-orange-800">Zarejestruj</a>
 @endauth
     </nav>

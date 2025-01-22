@@ -1,4 +1,4 @@
-    <footer class="mx-2 text-stone-600 text-sm">
+    <footer class="mx-2 text-stone-500 text-sm">
         Root name: <strong>{{ Route::currentRouteName() }}</strong>
         &mdash; Root action: <strong>{{ Route::currentRouteAction() }}</strong>
         @auth

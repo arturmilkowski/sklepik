@@ -1,0 +1,1 @@
+<div class="sm:inline-flex sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full mb-2">{{ $slot }}</div>
