@@ -28,6 +28,10 @@
         /* color: #f59e0b; */
     }
 
+    img {
+        background-color: yellow;
+    }
+
     .human {
         visibility: hidden;
         font-size: small;
