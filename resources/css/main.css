@@ -1,12 +1,13 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @plugin '@tailwindcss/forms';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
 @theme {
-  --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
 }
 
 /*
@@ -18,24 +19,24 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
 }
 
 @utility active {
-  &a {
-    /* color: #f59e0b; */
-  }
+    &a {
+        /* color: #f59e0b; */
+    }
 }
 
 @utility human {
-  visibility: hidden;
-  font-size: small;
+    visibility: hidden;
+    font-size: small;
 }
 
 /*
@@ -78,7 +79,9 @@ footer {
         /* border-bottom: 1px solid black; */
     }
 
+    /*
     img {
-        background-color: yellow;
+        background-color: ;
     }
+    */
 }

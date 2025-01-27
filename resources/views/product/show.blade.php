@@ -4,7 +4,7 @@
     @if ($cart->itemsCount())
     <x-cart :cart="$cart" />
     @endif
-    <div class="flex mb-24 mx-2">
+    <div class="flex mb-24 mx-2 text-xs">
         <div class="w-2/6 border-t-[1px] hover:border-dashed border-stone-900 dark:border-stone-600 pt-4">
             @if($product->img)
             <img src="{{ asset('storage/images/products') . '/' . $product->img }}" alt="{{ $product->name }}">

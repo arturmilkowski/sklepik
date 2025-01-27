@@ -1,4 +1,4 @@
-    <nav class="flex mx-2 gap-12 mb-24">
+    <nav class="flex mx-2 gap-1 mb-24 text-xs">
         <span class="w-2/6">-</span>
         <a href="{{ route('pages.index') }}" class="{{ Route::is('pages.index') ? 'text-orange-500' : '' }} hover:text-black dark:hover:text-orange-800" title="Strona główna">Start</a>
         <a href="{{ route('pages.about') }}" class="{{ Route::is('pages.about') ? 'text-orange-500' : '' }} hover:text-black dark:hover:text-orange-800" title="O firmie">O firmie</a>
