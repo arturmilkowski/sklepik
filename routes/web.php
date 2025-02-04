@@ -39,6 +39,7 @@ Route::get('/o-firmie', [PageController::class, 'about'])->name('pages.about');
 Route::get('/kontakt', [ContactController::class, 'create'])->name('pages.contacts.create');
 Route::post('/kontakt/wyslij', [ContactController::class, 'store'])->name('pages.contacts.store');
 Route::get('/dziekujemy-za-kontakt', [ContactController::class, 'thank'])->name('pages.contacts.thank');
+Route::view('/ciastka', 'page/cookie')->name('pages.cookie');
 
 Route::get('/produkty/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/produkty', [ProductController::class, 'index'])->name('products.index');
