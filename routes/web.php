@@ -40,6 +40,8 @@ Route::get('/kontakt', [ContactController::class, 'create'])->name('pages.contac
 Route::post('/kontakt/wyslij', [ContactController::class, 'store'])->name('pages.contacts.store');
 Route::get('/dziekujemy-za-kontakt', [ContactController::class, 'thank'])->name('pages.contacts.thank');
 Route::view('/ciastka', 'page/cookie')->name('pages.cookie');
+Route::view('/prywatnosc', 'page/privacy_policy')->name('pages.privacy_policy');
+Route::view('/regulamin', 'page/term_condition')->name('pages.term_condition');
 
 Route::get('/produkty/{product:slug}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/produkty', [ProductController::class, 'index'])->name('products.index');

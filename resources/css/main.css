@@ -65,7 +65,8 @@ footer {
         font-style: normal; */
     }
 
-    h1#logo {
+    h1#logo,
+    nav {
         font-family: "Share Tech Mono", serif;
         font-weight: 400;
         font-style: normal;
